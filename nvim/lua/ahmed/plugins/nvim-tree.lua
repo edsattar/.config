@@ -14,6 +14,9 @@ return {
           inline_arrows = false,
         },
       },
+      git = {
+        ignore = false
+      }
     })
   end,
 }
