@@ -1,0 +1,8 @@
+theme = "rose_pine_moon"
+
+[editor]
+true-color = true
+line-number = "relative"
+
+[editor.cursor-shape]
+insert = "bar"
