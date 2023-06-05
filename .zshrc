@@ -1,9 +1,8 @@
-  # If you come from bash you might have to change your $PATH.
+# If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
 
 #-------------------------+-------------------------#
 #                       THEME                       #
@@ -12,12 +11,12 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="nanotech"
+ZSH_THEME="agnoster"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "nanotech" "agnoster" )
+# ZSH_THEME_RANDOM_CANDIDATES=("bureau" "nanotech" "agnoster")
 #-------------------------+-------------------------#
 #
 # Uncomment the following line to use case-sensitive completion.
@@ -29,7 +28,7 @@ ZSH_THEME="nanotech"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -78,19 +77,57 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 plugins=(git python vi-mode)
 
 # vi-mode
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+# VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
-MODE_INDICATOR="%F{white}$ %f"
-INSERT_MODE_INDICATOR="%F{white}> %f"
+MODE_INDICATOR="%F{white} %f"
+# INSERT_MODE_INDICATOR="%F{white}> %f"
 export KEYTIMEOUT=1
 
-#-------------------------+-------------------------#
-
-# User configuration
-#
 source $ZSH/oh-my-zsh.sh
-PROMPT="$PROMPT\$(vi_mode_prompt_info)"
-# RPROMPT="\$(vi_mode_prompt_info)$RPROMPT"
+
+#-------------------------+-------------------------#
+#                USER CONFIGURATION                 #
+
+## agnoster custom
+prompt_context() {}
+prompt_dir() {
+  prompt_segment blue $CURRENT_FG '%2c'
+}
+prompt_git() {
+  local ref dirty mode repo_path
+  repo_path=$(git rev-parse --git-dir 2>/dev/null)
+
+  if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
+    dirty=$(parse_git_dirty)
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
+    if [[ -n $dirty ]]; then
+      prompt_segment yellow black
+    else
+      prompt_segment green black
+    fi
+
+    if [[ -e "${repo_path}/BISECT_LOG" ]]; then
+      mode=" <B>"
+    elif [[ -e "${repo_path}/MERGE_HEAD" ]]; then
+      mode=" >M<"
+    elif [[ -e "${repo_path}/rebase" || -e "${repo_path}/rebase-apply" || -e "${repo_path}/rebase-merge" || -e "${repo_path}/../.dotest" ]]; then
+      mode=" >R>"
+    fi
+
+    setopt promptsubst
+    autoload -Uz vcs_info
+
+    zstyle ':vcs_info:*' enable git
+    zstyle ':vcs_info:*' get-revision true
+    zstyle ':vcs_info:*' check-for-changes true
+    zstyle ':vcs_info:*' stagedstr '✚'
+    zstyle ':vcs_info:git:*' unstagedstr '●'
+    zstyle ':vcs_info:*' formats ' %u%c'
+    zstyle ':vcs_info:*' actionformats ' %u%c'
+    vcs_info
+    echo -n "${ref/refs\/heads\// }${vcs_info_msg_0_%% }${mode}"
+  fi
+}
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -107,7 +144,6 @@ PROMPT="$PROMPT\$(vi_mode_prompt_info)"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-
 #-------------------------+-------------------------#
 #                      ALIASES                      #
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -122,7 +158,9 @@ alias zshu="source ~/.zshrc"
 alias nvimc="nvim ~/.config/nvim/lua/ahmed/"
 . "$HOME/.cargo/env"
 
-function gacp { git add . && git commit -m "$@" && git push}
+function gacp {
+  git add . && git commit -m "$@" && git push
+}
 #-------------------------+-------------------------#
 #                   NEOVIM PICKER                   #
 alias nvlz="NVIM_APPNAME=nvim/LazyVim nvim"
@@ -132,10 +170,10 @@ alias nvas="NVIM_APPNAME=nvim/AstroNvim nvim"
 
 function nvs() {
   items=(
-    "default" 
+    "default"
     "nvim/Kickstart"
-    "nvim/LazyVim" 
-    "nvim/NvChad" 
+    "nvim/LazyVim"
+    "nvim/NvChad"
     "nvim/AstroNvim"
   )
   display_items=("${items[@]##*/}")
@@ -151,3 +189,4 @@ function nvs() {
   NVIM_APPNAME=$config nvim $@
 }
 #-------------------------+-------------------------#
+
