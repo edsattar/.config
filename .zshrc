@@ -89,6 +89,28 @@ source $ZSH/oh-my-zsh.sh
 #                USER CONFIGURATION                 #
 
 ## agnoster custom
+VIRTUAL_ENV_DISABLE_PROMPT=true
+
+# Status:
+# - was there an error
+# - am I root
+# - are there background jobs?
+prompt_status() {
+  local -a symbols
+
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}"
+  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
+  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}"
+
+  [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
+}
+# Virtualenv: current working virtualenv
+prompt_virtualenv() {
+  if [[ -n "$VIRTUAL_ENV" ]]; then
+    prompt_segment green black ""
+  fi
+}
+
 prompt_context() {}
 prompt_dir() {
   prompt_segment blue $CURRENT_FG '%2c'
@@ -99,7 +121,7 @@ prompt_git() {
 
   if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
     dirty=$(parse_git_dirty)
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
+    ref=$(git symbolic-ref HEAD 2>/dev/null) || ref="➦ $(git show-ref --head -s --abbrev | head -n1 2>/dev/null)"
     if [[ -n $dirty ]]; then
       prompt_segment yellow black
     else
@@ -189,4 +211,3 @@ function nvs() {
   NVIM_APPNAME=$config nvim $@
 }
 #-------------------------+-------------------------#
-

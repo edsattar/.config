@@ -18,11 +18,13 @@ require('lazy').setup('ahmed.plugins')
 require('ahmed.keymaps')
 require('ahmed.options')
 
+vim.cmd.colorscheme("rose-pine-moon")
+
 -- [[ LSP Configuration ]] --
 local lsp = require('lsp-zero').preset({})
 
 lsp.on_attach(function(client, bufnr)
-  lsp.default_keymaps({ buffer = bufnr })
+lsp.default_keymaps({ buffer = bufnr })
 end)
 
 lsp.ensure_installed({

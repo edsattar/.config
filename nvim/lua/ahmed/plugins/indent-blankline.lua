@@ -1,7 +1,6 @@
-return { 
-  "lukas-reineke/indent-blankline.nvim",
-
   -- See `:help indent-blankline` ┆¦ █ ┃
+return {
+  "lukas-reineke/indent-blankline.nvim",
   config = function()
     require("indent_blankline").setup {
       char = '',

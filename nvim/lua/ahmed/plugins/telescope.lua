@@ -4,28 +4,27 @@ return {
     { 'nvim-lua/plenary.nvim' },
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" }
   },
-  cmd = "Telescope",
-  opts = function()
+  config = function()
     local actions = require "telescope.actions"
-    return {
+    require('telescope').setup{
       defaults = {
         prompt_prefix = "   ",
-        selection_caret = "❯ ",
+        initial_mode = "normal",
         path_display = { "truncate" },
-        sorting_strategy = "ascending",
+        layout_strategy = "flex",
         layout_config = {
           horizontal = {
-            prompt_position = "top",
+            -- prompt_position = "top",
+            preview_cutoff = 80,
             preview_width = 0.55,
+            width = 0.95,
+            height = 0.80,
           },
           vertical = {
-            mirror = false,
+            width = 0.95,
+            height = 0.95,
           },
-          width = 0.87,
-          height = 0.80,
-          preview_cutoff = 120,
         },
-
         mappings = {
           i = {
             ["<C-n>"] = actions.cycle_history_next,
@@ -33,10 +32,11 @@ return {
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
           },
-          n = { ["q"] = actions.close },
+          n = {
+            ["q"] = actions.close,
+          },
         },
-      },
+      }
     }
   end,
-  --  config = require "plugins.configs.telescope",
 }

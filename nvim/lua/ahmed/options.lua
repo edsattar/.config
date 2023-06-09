@@ -1,5 +1,6 @@
 vim.g.loaded_netrw = 1        -- Disable netrw for neo-tree
 vim.g.loaded_netrwPlugin = 1  -- Disable netrwPlugin for neo-tree
+
 vim.opt.autoindent = true     -- Autoindentation
 vim.opt.cursorline = true     -- Highlight the text line of the cursor
 vim.opt.backup = false        -- Number of space in a tab
