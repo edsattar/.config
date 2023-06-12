@@ -175,9 +175,10 @@ prompt_git() {
 #
 # Example aliases
 alias omzsh="nvim ~/.oh-my-zsh"
-alias zshc="nvim ~/.zshrc"
+alias zshrc="nvim ~/.zshrc"
 alias zshu="source ~/.zshrc"
-alias nvimc="nvim ~/.config/nvim/lua/ahmed/"
+# alias nv = "nvim"
+alias nvimrc="nvim ~/.config/nvim/lua/ahmed/"
 . "$HOME/.cargo/env"
 
 function gacp {
@@ -185,10 +186,10 @@ function gacp {
 }
 #-------------------------+-------------------------#
 #                   NEOVIM PICKER                   #
-alias nvlz="NVIM_APPNAME=nvim/LazyVim nvim"
-alias nvks="NVIM_APPNAME=nvim/Kickstart nvim"
-alias nvch="NVIM_APPNAME=nvim/NvChad nvim"
-alias nvas="NVIM_APPNAME=nvim/AstroNvim nvim"
+alias nvsl="NVIM_APPNAME=nvim/LazyVim nvim"
+alias nvsk="NVIM_APPNAME=nvim/Kickstart nvim"
+alias nvsc="NVIM_APPNAME=nvim/NvChad nvim"
+alias nvsa="NVIM_APPNAME=nvim/AstroNvim nvim"
 
 function nvs() {
   items=(
