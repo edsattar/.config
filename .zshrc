@@ -79,9 +79,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias omzsh="nvim ~/.oh-my-zsh"
 alias zshrc="nvim ~/.zshrc"
-alias zshu="source ~/.zshrc"
-# alias nv = "nvim"
-alias nvimrc="nvim ~/.config/nvim/lua/ahmed/"
+alias zshu="source ~/.config/.zshrc"
+alias nvimrc="cd ~/.config/nvim/lua/ && nvim"
+alias nv="nvim"
 . "$HOME/.cargo/env"
 
 function gacp {
@@ -118,3 +118,5 @@ function nvs() {
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.config/.p10k.zsh ]] || source ~/.config/.p10k.zsh
+POWERLEVEL9K_TIME_FORMAT='%D{%I:%M %p}'
+POWERLEVEL9K_BATTERY_STAGES='󰂎󰁺󰁻󰁼󰁽󰁾󰁿󰂀󰂁󰂂󰁹'
