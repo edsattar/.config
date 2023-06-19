@@ -78,10 +78,10 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias omzsh="nvim ~/.oh-my-zsh"
-alias zshrc="nvim ~/.zshrc"
+alias zshrc="cd ~/.config/ && nvim ~/.config/.zshrc"
 alias zshu="source ~/.config/.zshrc"
-alias nvimrc="cd ~/.config/nvim/lua/ && nvim"
-alias nv="nvim"
+alias vimrc="cd ~/.config/nvim/lua/ && nvim"
+alias vi="nvim"
 . "$HOME/.cargo/env"
 
 function gacp {
