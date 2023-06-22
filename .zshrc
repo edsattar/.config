@@ -80,12 +80,12 @@ source $ZSH/oh-my-zsh.sh
 alias omzsh="nvim ~/.oh-my-zsh"
 alias zshrc="cd ~/.config/ && nvim ~/.config/.zshrc"
 alias zshu="source ~/.config/.zshrc"
-alias vimrc="cd ~/.config/nvim/lua/ && nvim"
+alias nvimrc="cd ~/.config/nvim/ && nvim"
 alias vi="nvim"
 . "$HOME/.cargo/env"
 
 function gacp {
-  git add . && git commit -m "$@" && git push
+  git pull && git add . && git commit -m "$@" && git push
 }
 #-------------------------+-------------------------#
 #                   NEOVIM PICKER                   #
