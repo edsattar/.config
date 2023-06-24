@@ -39,14 +39,14 @@ zstyle ':omz:update' mode auto # update automatically without asking
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python vi-mode)
+plugins=(git python)
 
 # vi-mode
 # VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
-MODE_INDICATOR="%F{white} %f"
+# VI_MODE_SET_CURSOR=true
+# MODE_INDICATOR="%F{white} %f"
 # INSERT_MODE_INDICATOR="%F{white}> %f"
-export KEYTIMEOUT=1
+# export KEYTIMEOUT=1
 
 source $ZSH/oh-my-zsh.sh
 
