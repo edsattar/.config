@@ -89,7 +89,8 @@ function gacp {
 }
 #-------------------------+-------------------------#
 #                   NEOVIM PICKER                   #
-alias nvsl="NVIM_APPNAME=nvim/LazyVim nvim"
+alias nvsz="NVIM_APPNAME=nvim/LazyVim nvim"
+alias nvsl="NVIM_APPNAME=nvim/LunarVim nvim"
 alias nvsk="NVIM_APPNAME=nvim/Kickstart nvim"
 alias nvsc="NVIM_APPNAME=nvim/NvChad nvim"
 alias nvsa="NVIM_APPNAME=nvim/AstroNvim nvim"
@@ -99,6 +100,7 @@ function nvs() {
     "default"
     "nvim/Kickstart"
     "nvim/LazyVim"
+    "nvim/LunarVim"
     "nvim/NvChad"
     "nvim/AstroNvim"
   )
