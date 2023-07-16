@@ -5,88 +5,54 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
+# Append to $PATH.
 export PATH=$HOME/.local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to oh-my-zsh.
 export ZSH="$HOME/.oh-my-zsh"
+
+# Multipurpose CapsLock
+# $ sudo apt install xcape
+setxkbmap -option ctrl:nocaps
+xcape -e 'Control_L=Escape'
+xmodmap -e "keycode 67 = XF86AudioPlay XF86AudioPause XF86AudioPlay XF86AudioPause"
 
 #-------------------------+-------------------------#
 #                       THEME                       #
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-# ZSH_THEME_RANDOM_CANDIDATES=("bureau" "nanotech" "agnoster") # limit random candidates when ZSH_THEME="random"
+
 #-------------------------+-------------------------#
 #                AUTO-UPDATE CONFIG                 #
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
 zstyle ':omz:update' mode auto # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-# zstyle ':omz:update' frequency 13 # change auto-update frequency (in days).
-
-# CASE_SENSITIVE="true" # enable case-sensitive completion.
-# HYPHEN_INSENSITIVE="true" # _ and - will be interchangeable. Case-sensitive completion must be off.
-# DISABLE_MAGIC_FUNCTIONS="true" # enable if pasting URLs and other text is messed up.
-# DISABLE_LS_COLORS="true" # to disable colors in ls.
-# DISABLE_AUTO_TITLE="true" # enable to disable auto-setting terminal title.
-# ENABLE_CORRECTION="true" # enable command auto-correction.
-# DISABLE_UNTRACKED_FILES_DIRTY="true" # disable marking untracked files under VCS as dirty. This makes repository status check for large repositories much, much faster.
-# ZSH_CUSTOM=/path/to/new-custom-folder # change custom folder other than $ZSH/custom?
 
 #-------------------------+-------------------------#
 #                      PLUGINS                      #
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git python)
-
-# vi-mode
-# VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-# VI_MODE_SET_CURSOR=true
-# MODE_INDICATOR="%F{white} %f"
-# INSERT_MODE_INDICATOR="%F{white}> %f"
-# export KEYTIMEOUT=1
-
+plugins=(git python zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 #-------------------------+-------------------------#
 #                USER CONFIGURATION                 #
-
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+#
+# for bash like behavior on missing package
+# sudo apt install command-not-found
+source /etc/zsh_command_not_found
 
 #-------------------------+-------------------------#
 #                      ALIASES                      #
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias omzsh="nvim ~/.oh-my-zsh"
-alias zshrc="cd ~/.config/ && nvim ~/.config/.zshrc"
-alias zshu="source ~/.config/.zshrc"
-alias nvimrc="cd ~/.config/nvim/ && nvim"
-alias vi="nvim"
-. "$HOME/.cargo/env"
-
 function gacp {
   git pull && git add . && git commit -m "$@" && git push
 }
+cdls() { cd "$@" && ls; }
+
+alias cd="cdls"
+alias omzsh="nvim ~/.oh-my-zsh"
+alias zshrc="nvim ~/.zshrc"
+alias zshu="source ~/.zshrc"
+alias vimrc="cd ~/.config/nvim/ && nvim"
+alias vi="nvim"
+# . "$HOME/.cargo/env"
+
+
 #-------------------------+-------------------------#
 #                   NEOVIM PICKER                   #
 alias nvsz="NVIM_APPNAME=nvim/LazyVim nvim"
@@ -119,6 +85,6 @@ function nvs() {
 #-------------------------+-------------------------#
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.config/.p10k.zsh ]] || source ~/.config/.p10k.zsh
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 POWERLEVEL9K_TIME_FORMAT='%D{%I:%M %p}'
 POWERLEVEL9K_BATTERY_STAGES='󰂎󰁺󰁻󰁼󰁽󰁾󰁿󰂀󰂁󰂂󰁹'
