@@ -13,9 +13,9 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Multipurpose CapsLock
 # $ sudo apt install xcape
-setxkbmap -option ctrl:nocaps
-xcape -e 'Control_L=Escape'
-xmodmap -e "keycode 67 = XF86AudioPlay XF86AudioPause XF86AudioPlay XF86AudioPause"
+# setxkbmap -option ctrl:nocaps
+# xcape -e 'Control_L=Escape'
+# xmodmap -e "keycode 67 = XF86AudioPlay XF86AudioPause XF86AudioPlay XF86AudioPause"
 
 #-------------------------+-------------------------#
 #                       THEME                       #
