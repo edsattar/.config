@@ -43,14 +43,12 @@ source /etc/zsh_command_not_found
 
 #-------------------------+-------------------------#
 #                      ALIASES                      #
-function gacp {
-  git pull && git add . && git commit -m "$@" && git push
-}
+gacp() { git pull && git add . && git commit -m "$@" && git push }
 cdls() { cd "$@" && ls; }
 
 alias cd="cdls"
 alias omzsh="nvim ~/.oh-my-zsh"
-alias zshrc="nvim ~/.zshrc"
+alias zshrc="cd ~/.local/config/ && nvim ~/.zshrc"
 alias zshu="source ~/.zshrc"
 alias vimrc="cd ~/.config/nvim/ && nvim"
 alias vi="nvim"
