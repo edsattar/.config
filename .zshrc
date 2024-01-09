@@ -34,6 +34,7 @@ zstyle ':omz:update' mode auto # update automatically without asking
 plugins=(
   git
   python
+  command-not-found
 )
 source $ZSH/oh-my-zsh.sh
 
