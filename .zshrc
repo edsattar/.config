@@ -35,15 +35,15 @@ plugins=(
   git
   python
   command-not-found
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 source $ZSH/oh-my-zsh.sh
 
 #-------------------------+-------------------------#
 #                USER CONFIGURATION                 #
 #
-# for bash like behavior on missing package
-# sudo apt install command-not-found
-# source /etc/zsh_command_not_found
+
 
 #-------------------------+-------------------------#
 #                      ALIASES                      #
