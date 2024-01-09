@@ -1,12 +1,15 @@
-## new install initial configs
+# New Ubuntu Setup
+
+## 1. Install Git
+get auth token from my token repo
 
 ```sh
-mkdir ~/.local && cd ~/.local && mkdir bin share config \
-&& git clone https://github.com/edsattar/.config.git ~/.local/config \
-&& ln -sf ~/.local/config/.zshrc ~/.zshrc && ln -sf ~/.local/config/.p10k.zsh ~/.p10k.zsh
+sudo apt install git
+git config --global user.name "edsattar"
+git config --global user.email "ahmed.sattar@live.com"
 ```
 
-## Zsh OhMyZsh and Powerlevel10k
+## 2. Zsh OhMyZsh and Powerlevel10k
 
 ```sh
 sudo apt update && sudo apt upgrade
@@ -16,12 +19,12 @@ sudo apt install zsh \
 && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting \
 && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
-
-## Git config
+## 3. Clone configs
 
 ```sh
-git config --global user.name "name"
-git config --global user.email "email"
+mkdir ~/.local && cd ~/.local && mkdir bin share config \
+&& git clone https://github.com/edsattar/.config.git ~/.local/config \
+&& ln -sf ~/.local/config/.zshrc ~/.zshrc && ln -sf ~/.local/config/.p10k.zsh ~/.p10k.zsh
 ```
 
 ## Github CLI
