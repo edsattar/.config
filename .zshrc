@@ -42,13 +42,15 @@ source $ZSH/oh-my-zsh.sh
 #
 # for bash like behavior on missing package
 # sudo apt install command-not-found
-source /etc/zsh_command_not_found
+# source /etc/zsh_command_not_found
 
 #-------------------------+-------------------------#
 #                      ALIASES                      #
-gacp() { git add . && git commit -m "$@" && git push }
-gacpp() { git pull && git add . && git commit -m "$@" && git push }
+gacp() { git add . && git commit -m "$@" && git push; }
+gacpp() { git pull && git add . && git commit -m "$@" && git push; }
 cdls() { cd "$@" && ls; }
+gp_config() { cd ~/.local/config/ && git pull && cd -; }
+gp_obsidian() { cd ~/Documents/obsidian/ && git pull && cd -; }
 
 alias cd="cdls"
 alias omzsh="nvim ~/.oh-my-zsh"
