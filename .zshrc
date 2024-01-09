@@ -31,7 +31,10 @@ zstyle ':omz:update' mode auto # update automatically without asking
 
 #-------------------------+-------------------------#
 #                      PLUGINS                      #
-plugins=(git python zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(
+  git
+  python
+)
 source $ZSH/oh-my-zsh.sh
 
 #-------------------------+-------------------------#

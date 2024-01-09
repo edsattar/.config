@@ -1,10 +1,8 @@
 ## new install initial configs
 
-`cd ~` 
-
 ```sh
-mkdir .local && cd .local && mkdir bin share config && cd config \
-&& git clone https://github.com/edsattar/.config.git . \
+mkdir ~/.local && cd ~/.local && mkdir bin share config \
+&& git clone https://github.com/edsattar/.config.git ~/.local/config \
 && ln -sf ~/.local/config/.zshrc ~/.zshrc && ln -sf ~/.local/config/.p10k.zsh ~/.p10k.zsh
 ```
 
