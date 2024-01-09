@@ -43,7 +43,8 @@ source /etc/zsh_command_not_found
 
 #-------------------------+-------------------------#
 #                      ALIASES                      #
-gacp() { git pull && git add . && git commit -m "$@" && git push }
+gacp() { git add . && git commit -m "$@" && git push }
+gacpp() { git pull && git add . && git commit -m "$@" && git push }
 cdls() { cd "$@" && ls; }
 
 alias cd="cdls"
