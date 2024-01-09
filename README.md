@@ -1,3 +1,13 @@
+## new install initial configs
+
+`cd ~` 
+
+```sh
+mkdir .local && cd .local && mkdir bin share config && cd config \
+&& git clone https://github.com/edsattar/.config.git . \
+&& ln -sf ~/.local/config/.zshrc ~/.zshrc && ln -sf ~/.local/config/.p10k.zsh ~/.p10k.zsh
+```
+
 ## Zsh OhMyZsh and Powerlevel10k
 
 ```sh
@@ -25,12 +35,7 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 && sudo apt install gh -y
 ```
 
-## sync configs
-
-```sh
-mkdir .local && cd .local && mkdir bin share config && cd config \
-&& git clone https://github.com/edsattar/.config.git . \
-&& ln -sf ~/.local/config/.zshrc ~/.zshrc && ln -sf ~/.local/config/.p10k.zsh ~/.p10k.zsh
+```
 sudo apt install x11-xserver-utils x11-xkb-utils xcape
 ```
 
