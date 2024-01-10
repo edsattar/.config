@@ -29,9 +29,14 @@ ln -sf ~/.local/config/.zshrc ~/.zshrc && ln -sf ~/.local/config/.p10k.zsh ~/.p1
 ## 3. Neovim
 
 ```sh
-curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz && \
+curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+```
+```sh
 tar -xzf nvim-linux64.tar.gz -C ~/.local/share/ && \
 ln -sf ~/.local/bin/nivm ~/.local/share/nvim-linux64/bin/nvim
+```
+```sh
+rm -rf nvim-linux64.tar.gz
 ```
 
 ## Github CLI
