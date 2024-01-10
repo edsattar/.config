@@ -39,7 +39,7 @@ curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.
 ```
 ```sh
 tar -xzf nvim-linux64.tar.gz -C ~/.local/share/ && \
-ln -sf ~/.local/bin/nivm ~/.local/share/nvim-linux64/bin/nvim
+ln -sf ~/.local/share/nvim-linux64/bin/nvim ~/.local/bin/nivm
 ```
 ```sh
 rm -rf nvim-linux64.tar.gz
