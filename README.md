@@ -1,10 +1,16 @@
 # New Ubuntu Setup
+## Basic
+
+```sh
+sudo apt update && sudo apt upgrade
+sudo apt install wget curl
+```
+
 
 ## 1. Install Git
 get auth token from my token repo
 
 ```sh
-sudo apt update && sudo apt upgrade
 sudo apt install git
 git config --global user.name "edsattar"
 git config --global user.email "ahmed.sattar@live.com"
