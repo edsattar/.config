@@ -98,6 +98,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
+#-------------------------+-------------------------#
+#                       BUN js                      #
 # bun completions
 [ -s "/home/ahmed/.bun/_bun" ] && source "/home/ahmed/.bun/_bun"
 
