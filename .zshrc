@@ -15,15 +15,15 @@ export PATH=$HOME/.local/bin:$PATH
 # Path to oh-my-zsh.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Multipurpose CapsLock
-# $ sudo apt install xcape
-# setxkbmap -option ctrl:nocaps
-# xcape -e 'Control_L=Escape'
-# xmodmap -e "keycode 67 = XF86AudioPlay XF86AudioPause XF86AudioPlay XF86AudioPause"
 
 #-------------------------+-------------------------#
 #                       THEME                       #
 ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+POWERLEVEL9K_TIME_FORMAT='%D{%I:%M %p}'
+POWERLEVEL9K_BATTERY_STAGES='󰂎󰁺󰁻󰁼󰁽󰁾󰁿󰂀󰂁󰂂󰁹'
 
 #-------------------------+-------------------------#
 #                AUTO-UPDATE CONFIG                 #
@@ -90,16 +90,13 @@ function nvs() {
   fi
   NVIM_APPNAME=$config nvim $@
 }
-#-------------------------+-------------------------#
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-POWERLEVEL9K_TIME_FORMAT='%D{%I:%M %p}'
-POWERLEVEL9K_BATTERY_STAGES='󰂎󰁺󰁻󰁼󰁽󰁾󰁿󰂀󰂁󰂂󰁹'
+#-------------------------+-------------------------#
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 
 # bun completions
 [ -s "/home/ahmed/.bun/_bun" ] && source "/home/ahmed/.bun/_bun"
