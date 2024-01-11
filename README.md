@@ -45,7 +45,7 @@ git clone https://github.com/edsattar/nvim-config.git ~/.config/nvim
 ```
 
 ## Github CLI
-
+[https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian-ubuntu-linux-raspberry-pi-os-apt](ref)
 ```sh
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg && \
 sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg && \
