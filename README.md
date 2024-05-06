@@ -2,8 +2,9 @@
 ## Basic
 
 ```sh
+sudo add-apt-repository ppa:wslutilities/wslu
 sudo apt update && sudo apt upgrade
-sudo apt install wget curl
+sudo apt install wget curl wslu
 ```
 
 
