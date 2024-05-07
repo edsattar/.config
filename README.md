@@ -61,12 +61,27 @@ rm nvim-linux64.tar.gz && \
 ln -sf ~/.local/share/nvim-linux64/bin/nvim ~/.local/bin/nvim && \
 git clone https://github.com/edsattar/nvim-config.git ~/.config/nvim
 ```
+### dependedcies
+1. ripgrep, check for latest
+```sh
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep_14.1.0-1_amd64.deb
+sudo dpkg -i ripgrep_14.1.0-1_amd64.deb
+```
+2. fd,
+```sh
+curl -LO https://github.com/sharkdp/fd/releases/download/v10.0.0/fd_10.0.0_amd64.deb
+sudo dpkg -i fd_10.0.0_amd64.deb
+```
+3. pyenv, Python version manager
+```sh
+curl https://pyenv.run | bash
+```
 
 ## nodejs
 
 ```sh
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
-nvm install --lts && nvm install node
+nvm install node
 ```
 
 ## c compiler
