@@ -10,7 +10,7 @@ if [ -r /etc/resolv.conf ] && grep -q "nameserver" /etc/resolv.conf; then
 fi
 
 # Append to $PATH.
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.turso:$HOME/.local/bin:$PATH
 
 # Path to oh-my-zsh.
 export ZSH="$HOME/.oh-my-zsh"
@@ -116,3 +116,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Turso
 export PATH="/home/ahmed/.turso:$PATH"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
