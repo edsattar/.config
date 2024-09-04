@@ -89,4 +89,8 @@ nvm install node
 ```sh
 sudo apt install build-essential gdb
 ```
+## nerd font
 
+```sh
+curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
+```
