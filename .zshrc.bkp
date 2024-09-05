@@ -47,8 +47,7 @@ source $ZSH/oh-my-zsh.sh
 
 #-------------------------+-------------------------#
 #                      ALIASES                      #
-gacp() { git add . && git commit -m "$@" && git push; }
-gacpp() { git pull && git add . && git commit -m "$@" && git push; }
+gacp() { git pull && git add . && git commit -m "$@" && git push; }
 cdl() { cd "$@" && ls; }
 gp_config() { cd ~/.local/config/ && git pull && cd -; }
 gp_obsidian() { cd ~/storage/shared/Obsidian/ && git pull && cd -; }
@@ -56,8 +55,7 @@ gp_obsidian() { cd ~/storage/shared/Obsidian/ && git pull && cd -; }
 alias omzsh="nvim ~/.oh-my-zsh"
 alias zshrc="cd ~/.local/config/ && nvim ~/.zshrc"
 alias zshu="source ~/.zshrc"
-alias vimrc="cd ~/.config/nvim/ && nvim"
-alias vi="nvim"
+alias nvimrc="cd ~/.config/nvim/ && nvim"
 # . "$HOME/.cargo/env"
 
 
@@ -72,11 +70,11 @@ alias nvsa="NVIM_APPNAME=nvim/AstroNvim nvim"
 function nvs() {
   items=(
     "default"
+    "nvim/AstroNvim"
     "nvim/Kickstart"
     "nvim/LazyVim"
     "nvim/LunarVim"
     "nvim/NvChad"
-    "nvim/AstroNvim"
   )
   display_items=("${items[@]##*/}")
   selected=$(printf "%s\n" "${display_items[@]}" | fzf --prompt=" Neovim Config  " --height=50% --layout=reverse --border --exit-0)

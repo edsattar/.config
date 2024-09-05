@@ -77,8 +77,8 @@ z4h load   ohmyzsh/ohmyzsh/plugins/emoji-clock  # load a plugin
 z4h bindkey z4h-backward-kill-word  Ctrl+Backspace     Ctrl+H
 z4h bindkey z4h-backward-kill-zword Ctrl+Alt+Backspace
 
-z4h bindkey undo Ctrl+z Shift+Tab  # undo the last command line change
-z4h bindkey redo Ctrl+y             # redo the last undone command line change
+z4h bindkey undo Ctrl+/ Shift+Tab  # undo the last command line change
+z4h bindkey redo Alt+/             # redo the last undone command line change
 
 z4h bindkey z4h-cd-back    Alt+Left   # cd into the previous directory
 z4h bindkey z4h-cd-forward Alt+Right  # cd into the next directory
@@ -95,11 +95,29 @@ compdef _directories md
 # Define named directories: ~w <=> Windows home directory on WSL.
 [[ -z $z4h_win_home ]] || hash -d w=$z4h_win_home
 
-# Define aliases.
+#-----------------------------------+-----------------------------------#
+#                                ALIASES                                #
+
 alias tree='tree -a -I .git'
+alias nvimrc="cd ~/.config/nvim/ && nvim"
+alias zshrc="cd ~/.local/config/ && nvim ~/.zshrc"
 
 # Add flags to existing aliases.
-alias ls="${aliases[ls]:-ls} -A"
+alias ls="${aliases[ls]:-ls} -ghA --group-directories-first --sort=extension"
+
+#-----------------------------------+-----------------------------------#
+#                               FUNCTIONS                               #
+
+function gacp() { git pull && git add . && git commit -m "$@" && git push; }
+function nvima() {
+  items=( "default" "nvim/Kickstart" "nvim/LazyVim" "nvim/LunarVim" "nvim/NvChad" "nvim/AstroNvim" )
+  display_items=("${items[@]##*/}")
+  selected=$(printf "%s\n" "${display_items[@]}" | fzf --prompt=" Neovim Config  " --height=50% --layout=reverse --border --exit-0)
+  if [[ -z $selected ]]; then echo "Nothing selected" return 0
+  elif [[ $selected == "default" ]]; then config=""
+  else config="nvim/$selected" fi
+  NVIM_APPNAME=$config nvim $@
+}
 
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
