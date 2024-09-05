@@ -46,9 +46,13 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 ### configs
 
 ```sh
-mkdir ~/.local && cd ~/.local && mkdir bin share config && \
-git clone https://github.com/edsattar/.config.git ~/.local/config && \
-ln -sf ~/.local/config/.zshrc ~/.zshrc && ln -sf ~/.local/config/.p10k.zsh ~/.p10k.zsh
+mkdir ~/.local 
+cd ~/.local 
+mkdir bin share config
+git clone https://github.com/edsattar/.config.git ~/.local/config
+ln -sf ~/.local/config/.zshrc ~/.zshrc
+ln -sf ~/.local/config/.p10k.zsh ~/.p10k.zsh
+ln -sf ~/.local/config/.tmux.conf ~/.tmux.conf
 ```
 ## 3. Neovim
 
@@ -93,4 +97,25 @@ sudo apt install build-essential gdb
 
 ```sh
 curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
+```
+
+## remap CAPSLOCK
+
+download xremap
+
+```sh
+cd ~
+curl -LO https://github.com/xremap/xremap/releases/download/v0.10.0/xremap-linux-x86_64-gnome.zip
+unzip xremap-linux-x86_64-gnome.zip
+rm xremap-linux-x86_64-gnome.zip
+sudo mv xremap /usr/bin
+```
+
+create service to run xremap on startup
+
+```sh
+sudo cp ~/.local/config/xremap/xremap.service /usr/lib/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable xremap.service
+sudo systemctl start xremap.service
 ```
