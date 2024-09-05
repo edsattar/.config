@@ -87,6 +87,7 @@ curl https://pyenv.run | bash
 ```sh
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 nvm install node
+npm install -g pnpm
 ```
 
 ## c compiler

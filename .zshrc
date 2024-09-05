@@ -14,7 +14,7 @@ zstyle ':z4h:' auto-update-days '28'
 zstyle ':z4h:bindkey' keyboard  'pc'
 
 # Start tmux if not already in tmux.
-zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
+# zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
 
 # Whether to move prompt to the bottom when zsh starts and on Ctrl+L.
 zstyle ':z4h:' prompt-at-bottom 'no'
@@ -77,8 +77,8 @@ z4h load   ohmyzsh/ohmyzsh/plugins/emoji-clock  # load a plugin
 z4h bindkey z4h-backward-kill-word  Ctrl+Backspace     Ctrl+H
 z4h bindkey z4h-backward-kill-zword Ctrl+Alt+Backspace
 
-z4h bindkey undo Ctrl+/ Shift+Tab  # undo the last command line change
-z4h bindkey redo Alt+/             # redo the last undone command line change
+z4h bindkey undo Ctrl+z Shift+Tab  # undo the last command line change
+z4h bindkey redo Ctrl+y             # redo the last undone command line change
 
 z4h bindkey z4h-cd-back    Alt+Left   # cd into the previous directory
 z4h bindkey z4h-cd-forward Alt+Right  # cd into the next directory
