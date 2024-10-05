@@ -13,11 +13,13 @@ zstyle ':z4h:' auto-update-days '28'
 # Keyboard type: 'mac' or 'pc'.
 zstyle ':z4h:bindkey' keyboard  'pc'
 
+# Don't start tmux.
+zstyle ':z4h:' start-tmux       no
 # Start tmux if not already in tmux.
 # zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
 
 # Whether to move prompt to the bottom when zsh starts and on Ctrl+L.
-zstyle ':z4h:' prompt-at-bottom 'no'
+# zstyle ':z4h:' prompt-at-bottom 'no'
 
 # Mark up shell's output with semantic information.
 zstyle ':z4h:' term-shell-integration 'yes'
