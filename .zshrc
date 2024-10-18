@@ -14,9 +14,10 @@ zstyle ':z4h:' auto-update-days '28'
 zstyle ':z4h:bindkey' keyboard  'pc'
 
 # Don't start tmux.
-zstyle ':z4h:' start-tmux       no
+# zstyle ':z4h:' start-tmux       no
+
 # Start tmux if not already in tmux.
-# zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
+zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
 
 # Whether to move prompt to the bottom when zsh starts and on Ctrl+L.
 # zstyle ':z4h:' prompt-at-bottom 'no'
