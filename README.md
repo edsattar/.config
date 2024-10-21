@@ -41,12 +41,11 @@ mkdir ~/.local; cd ~/.local; mkdir bin share config \
 ## Tmux
 ```sh
 sudo apt install tmux \
-&& ln -sf ~/.local/config/.tmux ~/.tmux \
 && ln -sf ~/.local/config/.tmux.conf ~/.tmux.conf \
 && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
-
 use `prefix + I` to install plugins
+
 use `prefix + U` to update plugins
 
 ## Zsh for Humans (Zsh, OhMyZsh, Powerlevel10k)
