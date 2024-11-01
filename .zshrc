@@ -106,7 +106,12 @@ alias nvimrc="cd ~/.config/nvim/ && nvim"
 alias zshrc="cd ~/.local/config/ && nvim ~/.zshrc"
 
 # Add flags to existing aliases.
-alias la="${aliases[ls]:-ls} -ghA --group-directories-first --sort=extension"
+# alias la="${aliases[ls]:-ls} -lhGA --group-directories-first --sort=extension"
+if command -v eza &> /dev/null; then
+  alias la="eza -lha -s=extension --group-directories-first"
+else
+  alias la="ls -lhGA --sort=extension --group-directories-first"
+fi
 
 #-----------------------------------+-----------------------------------#
 #                               FUNCTIONS                               #
