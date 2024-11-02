@@ -62,7 +62,10 @@ z4h install ohmyzsh/ohmyzsh || return
 z4h init || return
 
 # Extend PATH.
-path=(~/bin $path)
+path=(
+  $path
+  ~/bin
+)
 
 # Export environment variables.
 export GPG_TTY=$TTY
@@ -108,7 +111,7 @@ alias zshrc="cd ~/.local/config/ && nvim ~/.zshrc"
 # Add flags to existing aliases.
 # alias la="${aliases[ls]:-ls} -lhGA --group-directories-first --sort=extension"
 if command -v eza &> /dev/null; then
-  alias la="eza -lha -s=extension --group-directories-first"
+  alias la="eza -lha --git -s=extension --group-directories-first"
 else
   alias la="ls -lhGA --sort=extension --group-directories-first"
 fi
