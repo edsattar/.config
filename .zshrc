@@ -119,7 +119,8 @@ fi
 #-----------------------------------+-----------------------------------#
 #                               FUNCTIONS                               #
 
-function gacp() { git pull && git add . && git commit -m "$@" && git push; }
+function gacp() { git add . && git commit -m "$@" && git push; }
+function gpacp() { git pull && git add . && git commit -m "$@" && git push; }
 function nvima() {
   items=( "default" "nvim/Kickstart" "nvim/LazyVim" "nvim/LunarVim" "nvim/NvChad" "nvim/AstroNvim" )
   display_items=("${items[@]##*/}")
